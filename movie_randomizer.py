@@ -17,21 +17,21 @@ st.set_page_config(
     layout="centered"
 )
 
-# --- Mock Data (Fallback) ---
+# --- Mock Data (Fallback) - Normalizing to 0-5 scale ---
 MOCK_MOVIES = [
-    {"title": "The Dark Knight", "year": 2008, "genres": "Action|Crime|Drama", "avg_rating": 9.0, "overview": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice."},
-    {"title": "Inception", "year": 2010, "genres": "Action|Adventure|Sci-Fi", "avg_rating": 8.8, "overview": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."},
-    {"title": "Interstellar", "year": 2014, "genres": "Adventure|Drama|Sci-Fi", "avg_rating": 8.6, "overview": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival."},
-    {"title": "Parasite", "year": 2019, "genres": "Drama|Thriller", "avg_rating": 8.6, "overview": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."},
-    {"title": "Spirited Away", "year": 2001, "genres": "Animation|Adventure|Family", "avg_rating": 8.6, "overview": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits."},
-    {"title": "Pulp Fiction", "year": 1994, "genres": "Crime|Drama", "avg_rating": 8.9, "overview": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption."},
-    {"title": "The Matrix", "year": 1999, "genres": "Action|Sci-Fi", "avg_rating": 8.7, "overview": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence."},
-    {"title": "Forrest Gump", "year": 1994, "genres": "Drama|Romance", "avg_rating": 8.8, "overview": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate and other historical events unfold through the perspective of an Alabama man with an IQ of 75."},
-    {"title": "Everything Everywhere All At Once", "year": 2022, "genres": "Action|Adventure|Comedy", "avg_rating": 8.0, "overview": "A middle-aged Chinese immigrant is swept up into an insane adventure in which she alone can save the existence by exploring other universes."},
-    {"title": "Dune", "year": 2021, "genres": "Action|Adventure|Sci-Fi", "avg_rating": 8.0, "overview": "A noble family becomes embroiled in a war for control over the galaxy's most valuable asset while its heir becomes troubled by visions of a dark future."},
-    {"title": "The Godfather", "year": 1972, "genres": "Crime|Drama", "avg_rating": 9.2, "overview": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."},
-    {"title": "Schindler's List", "year": 1993, "genres": "Biography|Drama|History", "avg_rating": 8.9, "overview": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis."},
-    {"title": "Whiplash", "year": 2014, "genres": "Drama|Music", "avg_rating": 8.5, "overview": "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential."}
+    {"title": "The Dark Knight", "year": 2008, "genres": "Action|Crime|Drama", "avg_rating": 4.5, "overview": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice."},
+    {"title": "Inception", "year": 2010, "genres": "Action|Adventure|Sci-Fi", "avg_rating": 4.4, "overview": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."},
+    {"title": "Interstellar", "year": 2014, "genres": "Adventure|Drama|Sci-Fi", "avg_rating": 4.3, "overview": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival."},
+    {"title": "Parasite", "year": 2019, "genres": "Drama|Thriller", "avg_rating": 4.3, "overview": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."},
+    {"title": "Spirited Away", "year": 2001, "genres": "Animation|Adventure|Family", "avg_rating": 4.3, "overview": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits."},
+    {"title": "Pulp Fiction", "year": 1994, "genres": "Crime|Drama", "avg_rating": 4.5, "overview": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption."},
+    {"title": "The Matrix", "year": 1999, "genres": "Action|Sci-Fi", "avg_rating": 4.4, "overview": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence."},
+    {"title": "Forrest Gump", "year": 1994, "genres": "Drama|Romance", "avg_rating": 4.4, "overview": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate and other historical events unfold through the perspective of an Alabama man with an IQ of 75."},
+    {"title": "Everything Everywhere All At Once", "year": 2022, "genres": "Action|Adventure|Comedy", "avg_rating": 4.0, "overview": "A middle-aged Chinese immigrant is swept up into an insane adventure in which she alone can save the existence by exploring other universes."},
+    {"title": "Dune", "year": 2021, "genres": "Action|Adventure|Sci-Fi", "avg_rating": 4.0, "overview": "A noble family becomes embroiled in a war for control over the galaxy's most valuable asset while its heir becomes troubled by visions of a dark future."},
+    {"title": "The Godfather", "year": 1972, "genres": "Crime|Drama", "avg_rating": 4.6, "overview": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."},
+    {"title": "Schindler's List", "year": 1993, "genres": "Biography|Drama|History", "avg_rating": 4.5, "overview": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis."},
+    {"title": "Whiplash", "year": 2014, "genres": "Drama|Music", "avg_rating": 4.3, "overview": "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential."}
 ]
 
 # --- Data Loading Functions ---
@@ -124,8 +124,8 @@ def main():
         if "no genres listed" in all_genres: all_genres.remove("no genres listed")
         selected_genre = st.selectbox("Genre", ["Any"] + all_genres)
         
-        # Rating
-        min_rating = st.slider("Min Rating", 1.0, 10.0, 7.0, 0.5)
+        # Rating - UPDATED TO 0-5 SCALE
+        min_rating = st.slider("Min Rating", 0.0, 5.0, 3.5, 0.5)
         
         # Year
         min_year = int(df['year'].min())
@@ -171,7 +171,7 @@ def main():
             st.caption(f"{int(movie['year'])} • {movie['genres'].replace('|', ', ')}")
             
             c1, c2 = st.columns(2)
-            c1.metric("Rating", f"{movie['avg_rating']}/10")
+            c1.metric("Rating", f"{movie['avg_rating']}/5.0")
             
             st.write("### Plot")
             st.write(movie.get('overview', 'No plot available.'))
